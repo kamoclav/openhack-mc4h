@@ -1,4 +1,3 @@
-
 # Challenge  - Research Azure Data Analytics
 
 Data shared and aggregated using the FHIR standard offers rich analytics potential.
@@ -24,10 +23,10 @@ By the end of the section you will be able to
 ### Step 1
 Clone this repo 
 
-	https://github.com/microsoft/openhack-mc4h.git
+	git clone https://github.com/microsoft/openhack-mc4h.git
 
 ### Step 2
-Open  ***Challenge  - Research Azure Data Analytics.py***  in Azure Databricks
+Open  ***https://github.com/microsoft/openhack-mc4h.git/Challenge-9/Challenge  - Research Azure Data Analytics.py***  in Azure Databricks
 
 The remaining steps in this challenge section will be walked through in the Azure Databricks notebook
 
@@ -36,8 +35,8 @@ The remaining steps in this challenge section will be walked through in the Azur
 ## 2. Data Visualization and BI
 ### Learning Objectives
 By the end of the section you will be able to 
-* Write Anonymized FHIR data to Azure Synapse Analytics
-* Create a Power BI dashboard summarizing metrics about the dataset
+* Write Anonymized and flattened FHIR data to Azure Synapse Analytics
+* Create a Power BI report summarizing metrics about the dataset
 
 ### Prerequisites 
 * Deployed Azure API for FHIR
@@ -60,7 +59,7 @@ Use the documentation below to create a notebook in your Azure Synapse Workspace
 	https://docs.microsoft.com/en-us/azure/synapse-analytics/spark/apache-spark-development-using-notebooks
 
 In the Data Analysis and Statistical Modeling section you created parquet files for flattened FHIR resources.
-To load the flattened files into Azure Synapese, add a cell to the notebook with the following code and replace the location with the location of your parquet files.
+To load the flattened files into Azure Synapse, add a cell to the notebook with the following code and replace the location with the location of your parquet files.
 	
 <pre><code>
 %%sql
@@ -74,5 +73,9 @@ LOCATION 'parquet files storage location'
 Use the documentation below to create and link a Power BI workspace to Azure Synapse
 
 	https://docs.microsoft.com/en-us/azure/synapse-analytics/get-started-visualize-power-bi
+	
+### Step 4
+
+
 	
 	
