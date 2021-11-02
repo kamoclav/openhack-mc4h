@@ -23,10 +23,10 @@ By the end of the section you will be able to
 ### Step 1
 Clone this repo 
 
-	git clone https://github.com/microsoft/openhack-mc4h.git
+	https://github.com/microsoft/openhack-mc4h.git
 
 ### Step 2
-Open  ***https://github.com/microsoft/openhack-mc4h.git/Challenge-9/Challenge  - Research Azure Data Analytics.py***  in Azure Databricks
+Open  ***Challenge  - Research Azure Data Analytics.py***  in Azure Databricks
 
 The remaining steps in this challenge section will be walked through in the Azure Databricks notebook
 
@@ -35,8 +35,8 @@ The remaining steps in this challenge section will be walked through in the Azur
 ## 2. Data Visualization and BI
 ### Learning Objectives
 By the end of the section you will be able to 
-* Write Anonymized and flattened FHIR data to Azure Synapse Analytics
-* Create a Power BI report summarizing metrics about the dataset
+* Write Anonymized FHIR data to Azure Synapse Analytics
+* Create a Power BI dashboard summarizing metrics about the dataset
 
 ### Prerequisites 
 * Deployed Azure API for FHIR
@@ -54,28 +54,56 @@ Clone this repo
 
 ### Step 2
 
-Use the documentation below to create a notebook in your Azure Synapse Workspace
+Open your Synapse workspace and import data from the storage account you wrote flattened parquet files to in Section 1: Data Analysis and Statistical Modeling
 
-	https://docs.microsoft.com/en-us/azure/synapse-analytics/spark/apache-spark-development-using-notebooks
 
-In the Data Analysis and Statistical Modeling section you created parquet files for flattened FHIR resources.
-To load the flattened files into Azure Synapse, add a cell to the notebook with the following code and replace the location with the location of your parquet files.
-	
-<pre><code>
-%%sql
-CREATE TABLE employees USING PARQUET
-LOCATION 'parquet files storage location'
+On the workspace homepage, click import data
 
-</code></pre>
+![](https://)
+
+Create a one time built in copy task
+
+![](https://)
+
+Define the source as the storage account containing your flattened fhir parquet files. Select the Patients parquet.
+
+![](https://)
+
+Name a table to create as the destination
+
+![](https://)
+
+Double check the column mapping
+
+![](https://)
+
+Create the task and let it run
+
+
+
 
 ### Step 3
 
-Use the documentation below to create and link a Power BI workspace to Azure Synapse
+Create a linked connection for PowerBI
 
-	https://docs.microsoft.com/en-us/azure/synapse-analytics/get-started-visualize-power-bi
-	
-### Step 4
+![](https://)
 
+Download the .pbids file from the SQL Analytics database
 
+![](https://)
+
+Grant your user Synapse Linked Data Manager access
+
+![](https://)
+
+Open the file in PowerBI desktop
+
+![](https://)
+
+Use the patient address postal codes to create a map widget
+
+![](https://)
+
+You've created a report for geographic analysis!
 	
 	
