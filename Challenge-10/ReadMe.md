@@ -2,7 +2,7 @@
 
 Data shared and aggregated using the FHIR standard offers rich analytics potential.
 
-In this challenge we will utilize FHIR data for analytics. The lesson will be broken into two sections Data Analysis & Statistical Modeling and Data Visualization
+In this challenge we will utilize FHIR data for analytics. The lesson will be broken into two sections: Data Analysis & Statistical Modeling, and Data Visualization.
 
 
 
@@ -28,7 +28,7 @@ Clone this repo
 ### Step 2
 Open  ***Challenge  - Research Azure Data Analytics.py***  in Azure Databricks
 
-The remaining steps in this challenge section will be walked through in the Azure Databricks notebook
+The remaining steps in this challenge section will be walked through in the Azure Databricks notebook.
 
 
  
