@@ -36,7 +36,7 @@ The remaining steps in this challenge section will be walked through in the Azur
 ### Learning Objectives
 By the end of the section you will be able to 
 * Write Anonymized FHIR data to Azure Synapse Analytics
-* Create a Power BI dashboard summarizing metrics about the dataset
+* Create a Power BI report with a widget summarizing patient geographic data
 
 ### Prerequisites 
 * Deployed Azure API for FHIR
@@ -45,64 +45,71 @@ By the end of the section you will be able to
 * Completed Challenge - Export and Anonymize Data
 * Completed section #1 Data Analysis and Statistical Modeling of this challenge
 
-### Step 1
+### Step 1: Loading Parquet data into Synapse
 
-Clone this repo
-
-	https://github.com/microsoft/openhack-mc4h.git
+#### 1. Open your Synapse workspace and import data from the storage account you wrote flattened parquet files to in Section 1: Data Analysis and Statistical Modeling  <br />
 
 
-### Step 2
+#### 2. On the workspace homepage, click import data  <br />
+<br />
 
-Open your Synapse workspace and import data from the storage account you wrote flattened parquet files to in Section 1: Data Analysis and Statistical Modeling
+![](https://github.com/kamoclav/openhack-mc4h/blob/development/docs/assets/images/Synapse-data-import-1.png) <br />
+<br />
+#### 3. Create a one time built in copy task <br />
+<br />
 
+![](https://github.com/kamoclav/openhack-mc4h/blob/development/docs/assets/images/Synapse-data-import-2.png) <br />
+<br />
 
-On the workspace homepage, click import data
+#### 4. Define the source as the storage account containing your flattened fhir parquet files. Select the Patients parquet. <br />
+<br />
 
-![](https://)
+![](https://github.com/kamoclav/openhack-mc4h/blob/development/docs/assets/images/Synapse-data-import-3.png) <br />
+<br />
 
-Create a one time built in copy task
+#### 5. Name a table to create as the destination <br />
+<br />
 
-![](https://)
-
-Define the source as the storage account containing your flattened fhir parquet files. Select the Patients parquet.
-
-![](https://)
-
-Name a table to create as the destination
-
-![](https://)
-
-Double check the column mapping
-
-![](https://)
-
-Create the task and let it run
+![](https://github.com/kamoclav/openhack-mc4h/blob/development/docs/assets/images/Synapse-data-import-6.png) <br />
+<br />
 
 
+#### 6. Double check the column mapping <br />
+<br />
+
+#### 7. Create the task and let it run <br />
+<br />
+
+![](https://github.com/kamoclav/openhack-mc4h/blob/development/docs/assets/images/Synapse-data-import-7.png) <br />
+<br />
 
 
-### Step 3
 
-Create a linked connection for PowerBI
 
-![](https://)
+### Step 2: Connecting PowerBI and Creating a Report
 
-Download the .pbids file from the SQL Analytics database
+#### 1. Create a linked connection for PowerBI <br />
+ <br />
 
-![](https://)
+![](https://github.com/kamoclav/openhack-mc4h/blob/development/docs/assets/images/PowerBI-Connect-2.png) <br />
+<br />
 
-Grant your user Synapse Linked Data Manager access
+#### 2. Download the .pbids file from the SQL Analytics database <br />
+<br />
 
-![](https://)
+![](https://github.com/kamoclav/openhack-mc4h/blob/development/docs/assets/images/PowerBI-Connect-4.png) <br />
 
-Open the file in PowerBI desktop
+#### 3. Grant your user Synapse Linked Data Manager access <br />
+<br />
 
-![](https://)
+![](https://github.com/kamoclav/openhack-mc4h/blob/development/docs/assets/images/PowerBI-Connect-5.png)<br />
+<br />
 
-Use the patient address postal codes to create a map widget
+#### 4. Open the file in PowerBI desktop and use the patient address postal codes to create a map widget<br />
+<br />
 
-![](https://)
+![](https://github.com/kamoclav/openhack-mc4h/blob/development/docs/assets/images/PowerBI-Connect-6.png)<br />
+<br />
 
 You've created a report for geographic analysis!
 	
