@@ -2,18 +2,19 @@
 
 Data shared and aggregated using the FHIR standard offers rich analytics potential.
 
-In this challenge we will utilize FHIR data for analytics. The lesson will be broken into two sections: Data Analysis & Statistical Modeling, and Data Visualization.
+In this challenge we will utilize FHIR data for analytics. The lesson will be broken into two sections: Data Analysis & Statistical Modeling, and Data Visualization. 
 
+## Context
+Sunrise Healthcare is working to increase Flu vacciniation rates in their healthcare regions. To develop programs to address the vaccination rates, the health system needs to understand what factors influence Flu rate for a given geographic region. In this challenge you will explore the effect of gender and age on patients'recieving the Flu shot or not and visually explore regional vaccination rates.
 
-
-## 1. Data Analysis and Statistical Modeling
+## 1. Data Analysis and Statistical Modeling: Does gender or age have an effect on completion of a Flu shot?
 ### Learning Objectives
 By the end of the section you will be able to
 * Import Anonymized FHIR data into Azure Databricks
 * Flatten the data structure to a tabular format
 * Produce descriptive statistics on the dataset
 * Visualize data elements within the dataset
-* Perform an ANOVA test on two data elements
+* Perform an ANOVA test to determine the effect of one variable on another
 
 ### Prerequisites 
 * Deployed Azure API for FHIR
@@ -32,11 +33,11 @@ The remaining steps in this challenge section will be walked through in the Azur
 
 
  
-## 2. Data Visualization and BI
+## 2. Data Visualization and BI: What Sunrise Healthcare region has the lowest Flu vaccination rates?
 ### Learning Objectives
 By the end of the section you will be able to 
 * Write Anonymized FHIR data to Azure Synapse Analytics
-* Create a Power BI report with a widget summarizing patient geographic data
+* Create a Power BI report with a widget summarizing regional Flu vaccination rates
 
 ### Prerequisites 
 * Deployed Azure API for FHIR
@@ -45,72 +46,29 @@ By the end of the section you will be able to
 * Completed Challenge - Export and Anonymize Data
 * Completed section #1 Data Analysis and Statistical Modeling of this challenge
 
-### Step 1: Loading Parquet data into Synapse
+### Step 1: Load Parquet data into Azure Synapse
 
 #### 1. Open your Synapse workspace and import data from the storage account you wrote flattened parquet files to in Section 1: Data Analysis and Statistical Modeling  <br />
-
-
-#### 2. On the workspace homepage, click import data  <br />
+You will need Patient data and Immmunizaton data to explore regional vaccinaion rates for Sunrise Healthcare <br />
+<br />
+If you get stuck, check out this article on the Copy Data Tool in Azure Synapse<br />
+<br />
+https://docs.microsoft.com/en-us/azure/data-factory/copy-data-tool?tabs=data-factory
 <br />
 
-![](https://github.com/kamoclav/openhack-mc4h/blob/development/docs/assets/images/Synapse-data-import-1.png) <br />
+### Step 2: Connect PowerBI, Load Synapse data, and report of vaccination rates by postal code <br />
+Connect your PowerBI workspace to Azure Synapse, load the Patient and Immunization data into PowerBI<br />
+You are interested in the Flu vaccination rates so you will need to join the datasets and create a field in the combined dataset that can be aggregated to achieve that rate.<br />
+If you get stuck, check out this article on creating custom columns in PowerBI. <br />
 <br />
-#### 3. Create a one time built in copy task <br />
+https://docs.microsoft.com/en-us/power-bi/create-reports/desktop-add-custom-column#:~:text=Use%20Power%20Query%20Editor%20to%20add%20a%20custom%20column,-To%20start%20creating&text=From%20the%20Home%20tab%20on,The%20Custom%20Column%20window%20appears. <br />
 <br />
-
-![](https://github.com/kamoclav/openhack-mc4h/blob/development/docs/assets/images/Synapse-data-import-2.png) <br />
+Information on group by aggregations can be found here<br />
 <br />
-
-#### 4. Define the source as the storage account containing your flattened fhir parquet files. Select the Patients parquet. <br />
-<br />
-
-![](https://github.com/kamoclav/openhack-mc4h/blob/development/docs/assets/images/Synapse-data-import-3.png) <br />
-<br />
-
-#### 5. Name a table to create as the destination <br />
-<br />
-
-![](https://github.com/kamoclav/openhack-mc4h/blob/development/docs/assets/images/Synapse-data-import-6.png) <br />
+https://docs.microsoft.com/en-us/power-query/group-by#:~:text=Select%20Group%20by%20on%20the,the%20column%20used%20is%20Units
 <br />
 
 
-#### 6. Double check the column mapping <br />
-<br />
-
-#### 7. Create the task and let it run <br />
-<br />
-
-![](https://github.com/kamoclav/openhack-mc4h/blob/development/docs/assets/images/Synapse-data-import-7.png) <br />
-<br />
-
-
-
-
-### Step 2: Connecting PowerBI and Creating a Report
-
-#### 1. Create a linked connection for PowerBI <br />
- <br />
-
-![](https://github.com/kamoclav/openhack-mc4h/blob/development/docs/assets/images/PowerBI-Connect-2.png) <br />
-<br />
-
-#### 2. Download the .pbids file from the SQL Analytics database <br />
-<br />
-
-![](https://github.com/kamoclav/openhack-mc4h/blob/development/docs/assets/images/PowerBI-Connect-4.png) <br />
-
-#### 3. Grant your user Synapse Linked Data Manager access <br />
-<br />
-
-![](https://github.com/kamoclav/openhack-mc4h/blob/development/docs/assets/images/PowerBI-Connect-5.png)<br />
-<br />
-
-#### 4. Open the file in PowerBI desktop and use the patient address postal codes to create a map widget<br />
-<br />
-
-![](https://github.com/kamoclav/openhack-mc4h/blob/development/docs/assets/images/PowerBI-Connect-6.png)<br />
-<br />
-
-You've created a report for geographic analysis!
+Sunrise Healthcare now knows what regions have low vaccination rate zip codes and what demographic groups are less likely to be vaccinated. They can now create targeted programs to increase vaccination rates across their system.
 	
 	
