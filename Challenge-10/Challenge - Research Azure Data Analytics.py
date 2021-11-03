@@ -1,7 +1,7 @@
 # Databricks notebook source
 # DBTITLE 1,Challenge - Research Azure Data Analytics
 # MAGIC %md 
-# MAGIC This challange will walk you through using exported and anonymized data for research analytics. 
+# MAGIC This challange will walk you through using exported and anonymized data for research analytics.  You will explore the effect of gender and age on patients'recieving the Flu shot or not. The result of your analysis will help shape Sunrise Health's strategy for increasing Flu vaccination rates.
 # MAGIC In this lesson we will complete the following tasks
 # MAGIC * Read in anonymized FHIR json files
 # MAGIC * Flatten the data structure to tabular format
@@ -132,20 +132,24 @@ except:
 # COMMAND ----------
 
 # DBTITLE 1,Step 3: Produce descriptive statistics on the dataset
+#It's important to understand what data is in your dataset before performing a specific analysis task
 #Basic descriptive statistics
 analysis_df_1 = spark.read.parquet(<<filepath>>)
 analysis_df_1.select('<<column name>>').describe().show()
 
+#To explore the effect of patient demographics like gender and race on immunization rates, you will need to join datasets. Pay attention to any data transformation necessary to join Patient and Immunization data
 #Joining datasets
 analysis_df_2 = spark.read.parquet(<<filepath>>)
 analysis_df_joined = analysis_df_1.join(analysis_df_2, <<id column = id column>>, "left")
 
+#A group by can give a quick picture of a categorical variables effect on a responsive metric. The sample code below will help with a group by but first you will have to create a column to represent Flu vaccination or not
 #Group by aggregations
-analysis_df_joined.groupBy("<<column name").min("<<column name>>").show(truncate=False)
+analysis_df_joined.groupBy("<<column name").sum("<<column name>>").show(truncate=False)
 
 # COMMAND ----------
 
 # DBTITLE 1,Step 4: Visualize data elements within the dataset
+#Visually exploring a dataset can generate additional hypothesises. There are a couple of sample code visualizations below.
 #Histogram
 analysis_df_joined.select('<<column name>>').histogram(5)
 
@@ -159,6 +163,7 @@ analysis_df_joined.select(<<list of columns>>).corr().style.background_gradient(
 # COMMAND ----------
 
 # DBTITLE 1,Step 5 : Perform an ANOVA test on two data elements
+#A group by can give us a gut check on how a categorical variable effects a response variable. An ANOVA gives us a statistical answer. Sample code below will get you started exploring the effect of gender and age on Flu vaccination rates
 stats.f_oneway(analysis_df_joined.select(<<column name>>),analysis_df_joined.select(<<column name>>))
 
 # COMMAND ----------
