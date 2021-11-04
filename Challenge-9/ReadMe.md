@@ -24,7 +24,7 @@ https://github.com/microsoft/Tools-for-Health-Data-Anonymization/blob/master/doc
 ### Step 2: Export minimal necessary anonymized data to a storage account
 HIPAA rules dictate only the minimal data necessary should be used for research projects even if the data is anonymized. Determine what FHIR objects are necessary for Sunnyville University students to study yearly Flu trends.
 
-Perform a de-identified $export operation on the FHIR server. If you get stuck refer to the documentation in step 1
+Perform a de-identified $export operation on the FHIR server. If you get stuck refer to the documentation in step 1.
 
 
 ### Step 3: Securely transfer the file to the research team
