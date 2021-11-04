@@ -28,10 +28,10 @@ Perform a de-identified $export operation on the FHIR server. If you get stuck r
 
 
 ### Step 3: Securely transfer the file to the research team
-Since the researchers at Sunnyville University are not a part of Sunrise Healthcare, they cannot be given access to a storage account in Sunrise Healthcare's Azure.
+Since the researchers at Sunnyville University are not a part of Sunrise Healthcare, they cannot be given access in Sunrise Healthcare's Azure.
 
-Set up a secure file exchange that you can provide to the Sunnyville University team and load your datasets there.
+Set up a shared access signature (SAS) token to allow the research team to access the anonymized datasets.
 
-If you get stuck check out https://docs.microsoft.com/en-us/troubleshoot/azure/general/secure-file-exchange-transfer-files
+If you get stuck check out https://docs.microsoft.com/en-us/azure/cognitive-services/translator/document-translation/create-sas-tokens?tabs=Containers
 
 You have successfully supported the Sunnyville University and Sunrise Healthcare research partnership!
